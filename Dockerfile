@@ -12,7 +12,7 @@ COPY README.rst .
 COPY test_pycosat.py .
 COPY setup.py .
 
-RUN python setup.py build_ext --inplace
+RUN python setup.py build_ext -i
 RUN python test_pycosat.py
 
 RUN python setup.py bdist_wheel
