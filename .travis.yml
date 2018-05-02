@@ -1,0 +1,11 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+script:
+  - docker build -t pycosat .
+  - mkdir dist
+  - docker run --rm pycosat cat /io/dist/repaired/pycosat-0.6.3-cp36-cp36m-manylinux1_x86_64.whl > dist/pycosat-0.6.3-cp36-cp36m-manylinux1_x86_64.whl
