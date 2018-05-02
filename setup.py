@@ -1,6 +1,6 @@
 import re
 import sys
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
 
 # Read version from pycosat.c
