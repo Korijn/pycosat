@@ -3,7 +3,9 @@ FROM quay.io/pypa/manylinux1_x86_64
 WORKDIR /io
 
 ENV PATH=/opt/python/cp36-cp36m/bin:$PATH
-RUN pip install pip wheel setuptools auditwheel --upgrade
+# stick to wheel 0.30.0 because 0.31.0 does not generate metadata.json anymore and anaconda cant handle that
+# https://github.com/Anaconda-Platform/anaconda-client/issues/469
+RUN pip install pip wheel==0.30.0 setuptools auditwheel anaconda-client twine --upgrade
 
 COPY pycosat.c .
 COPY picosat.c .
